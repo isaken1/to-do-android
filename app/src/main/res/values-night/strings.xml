@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="acao_pesquisar">Pesquisar</string>
+    <string name="acao_novo">Nova Tarefa</string>
+    <string name="acao_info">Info</string>
+</resources>

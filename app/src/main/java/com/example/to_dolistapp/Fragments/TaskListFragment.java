@@ -44,6 +44,11 @@ public class TaskListFragment extends ListFragment {
  
     }
 
+    public void addTask(Task task){
+        mTasks.add(task);
+        mAdapter.notifyDataSetChanged();
+    }
+
     private List<Task> loadTask(){
 
         List<Task> tasks = new ArrayList<Task>();

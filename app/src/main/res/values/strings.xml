@@ -2,4 +2,7 @@
     <string name="app_name">To-Do List APP</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="acao_pesquisar">Pesquisar</string>
+    <string name="acao_novo">Nova Tarefa</string>
+    <string name="acao_info">Info</string>
 </resources>
