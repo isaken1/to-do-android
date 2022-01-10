@@ -2,19 +2,20 @@ package com.example.to_dolistapp.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Task implements Serializable {
 
     private String title;
     private String description;
-    private Calendar initialDate;
-    private Calendar finishDate;
+    private Date initialDate;
+    private Date finishDate;
 
     public Task (String titulo, String descricao){
         this.title = titulo;
         this.description = descricao;
-        this.initialDate = Calendar.getInstance();
-        this.initialDate.set(Calendar.YEAR, Calendar.MONTH, Calendar.DATE);
+        this.initialDate = new Date();
+        this.finishDate = new Date();
     }
 
     public String getTitle() {
@@ -33,19 +34,19 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public Calendar getInitialDate() {
+    public Date getInitialDate() {
         return initialDate;
     }
 
-    public void setInitialDate(Calendar initialDate) {
+    public void setInitialDate(Date initialDate) {
         this.initialDate = initialDate;
     }
 
-    public Calendar getFinishDate() {
+    public Date getFinishDate() {
         return finishDate;
     }
 
-    public void setFinishDate(Calendar finishDate) {
+    public void setFinishDate(Date finishDate) {
         this.finishDate = finishDate;
     }
 

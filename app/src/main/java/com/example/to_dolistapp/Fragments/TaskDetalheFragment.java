@@ -57,13 +57,13 @@ public static final String TAG_DETALHE = "tagDetalhe";
         if(mTask != null){
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-            //String dataInicial = sdf.format(mTask.getInitialDate());
-            //String dataFinal = sdf.format(mTask.getFinishDate());
+            String dataInicial = sdf.format(mTask.getInitialDate());
+            String dataFinal = sdf.format(mTask.getFinishDate());
 
             tvNome.setText(mTask.getTitle());
             tvDescricao.setText(mTask.getDescription());
-            //tvDataInicial.setText(dataInicial);
-            //tvDataFinal.setText(dataFinal);
+            tvDataInicial.setText(dataInicial);
+            tvDataFinal.setText(dataFinal);
         }
 
         return layout;
