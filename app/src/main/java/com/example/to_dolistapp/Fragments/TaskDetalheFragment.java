@@ -62,8 +62,8 @@ public static final String TAG_DETALHE = "tagDetalhe";
 
             tvTitulo.setText(mTask.getTitle());
             tvDescricao.setText(mTask.getDescription());
-            tvDataInicial.setText(dataInicial);
-            tvDataFinal.setText(dataFinal);
+            tvDataInicial.setText("Início: "+dataInicial);
+            tvDataFinal.setText("Prazo: "+dataFinal);
         }
 
         return layout;
