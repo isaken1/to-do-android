@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.to_dolistapp.Fragments.InfoDialogFragment;
 import com.example.to_dolistapp.Fragments.TaskDialogFragment;
 import com.example.to_dolistapp.Fragments.TaskListFragment;
 import com.example.to_dolistapp.model.Task;
@@ -50,6 +51,10 @@ public class TaskActivity extends AppCompatActivity implements TaskListFragment.
             case R.id.acao_novo:
                 TaskDialogFragment taskDialogFragment = TaskDialogFragment.novaInstancia();
                 taskDialogFragment.show(fragmentManager, TaskDialogFragment.DIALOG_TAG);
+                break;
+            case R.id.acao_info:
+                InfoDialogFragment infoDialogFragment = new InfoDialogFragment();
+                infoDialogFragment.show(fragmentManager, "INFO");
         }
 
         return super.onOptionsItemSelected(item);
