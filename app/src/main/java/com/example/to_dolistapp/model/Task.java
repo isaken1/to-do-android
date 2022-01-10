@@ -1,8 +1,9 @@
 package com.example.to_dolistapp.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Task {
+public class Task implements Serializable {
 
     private String title;
     private String description;
@@ -13,7 +14,7 @@ public class Task {
         this.title = titulo;
         this.description = descricao;
         this.initialDate = Calendar.getInstance();
-        //this.initialDate.set(Calendar.YEAR, Calendar.MONTH, Calendar.DATE);
+        this.initialDate.set(Calendar.YEAR, Calendar.MONTH, Calendar.DATE);
     }
 
     public String getTitle() {
