@@ -19,7 +19,7 @@ public static final String TAG_DETALHE = "tagDetalhe";
 
     Task mTask;
 
-    TextView tvNome;
+    TextView tvTitulo;
     TextView tvDescricao;
     TextView tvDataInicial;
     TextView tvDataFinal;
@@ -49,7 +49,7 @@ public static final String TAG_DETALHE = "tagDetalhe";
                              Bundle savedInstanceState){
         View layout = inflater.inflate(R.layout.fragment_task_detalhe, container, false);
 
-        tvNome = layout.findViewById(R.id.tvNome);
+        tvTitulo = layout.findViewById(R.id.tvTitulo);
         tvDescricao = layout.findViewById(R.id.tvDescricao);
         tvDataInicial = layout.findViewById(R.id.tvDataInicial);
         tvDataFinal = layout.findViewById(R.id.tvDataFinal);
@@ -60,7 +60,7 @@ public static final String TAG_DETALHE = "tagDetalhe";
             String dataInicial = sdf.format(mTask.getInitialDate());
             String dataFinal = sdf.format(mTask.getFinishDate());
 
-            tvNome.setText(mTask.getTitle());
+            tvTitulo.setText(mTask.getTitle());
             tvDescricao.setText(mTask.getDescription());
             tvDataInicial.setText(dataInicial);
             tvDataFinal.setText(dataFinal);

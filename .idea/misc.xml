@@ -8,6 +8,8 @@
         <entry key="..\:/Github/to-do-android/app/src/main/res/layout/fragment_task_detalhe.xml" value="0.2520833333333333" />
         <entry key="..\:/Github/to-do-android/app/src/main/res/layout/fragment_task_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/to-do-android/app/src/main/res/layout/task_detalhe_activity.xml" value="0.128125" />
+        <entry key="app/src/main/res/layout/fragment_task_detalhe.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/task_lista_mod.xml" value="0.25" />
       </map>
     </option>
   </component>

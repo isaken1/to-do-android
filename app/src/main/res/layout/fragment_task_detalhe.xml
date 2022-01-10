@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:id="@+id/tvNome" />
+        android:id="@+id/tvTitulo" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,16 +19,16 @@
         android:id="@+id/tvDescricao" />
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:id="@+id/tvDataInicial" />
-            
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/tvDataInicial" />
+
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:id="@+id/tvDataFinal" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/tvDataFinal" />
 
 
 </LinearLayout>
