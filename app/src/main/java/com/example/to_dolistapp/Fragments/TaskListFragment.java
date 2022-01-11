@@ -128,5 +128,35 @@ public class TaskListFragment extends Fragment implements SwipeControllerActions
         void clicouNaTask(Task task);
     }
 
+    public void buscar(String s){
 
+        if(s == null || s.trim().equals("")){
+            limpaBusca();
+            return;
+        }
+
+        List<Task> tasksEncontradas = new ArrayList<Task>(mTasks);
+
+        //2.1 percorrer a lista e retirar os filmes não relacionados ao parametro de busca (s)
+
+        for(int i = tasksEncontradas.size()-1; i >= 0; i--){
+            Task task = tasksEncontradas.get(i);
+            //verifica se o filme na posicao i contem em SEU nome o trecho buscado que é
+            //representado por s. Se não tiver, filme i sai da lista.
+
+            if(!task.getTitle().toUpperCase().contains(s.toUpperCase())){
+                tasksEncontradas.remove(task);
+            }
+        }
+
+        mAdapter = new AdapterMod(tasksEncontradas);
+        rvTasks.setAdapter(mAdapter);
+
+
+    }
+
+    public void limpaBusca(){
+        mAdapter = new AdapterMod(mTasks);
+        rvTasks.setAdapter(mAdapter);
+    }
 }

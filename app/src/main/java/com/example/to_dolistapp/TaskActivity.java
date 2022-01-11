@@ -2,6 +2,7 @@ package com.example.to_dolistapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.example.to_dolistapp.Fragments.InfoDialogFragment;
 import com.example.to_dolistapp.Fragments.TaskDialogFragment;
@@ -18,7 +20,7 @@ import com.example.to_dolistapp.controllers.SwipeController;
 import com.example.to_dolistapp.model.Task;
 
 public class TaskActivity extends AppCompatActivity implements TaskListFragment.AoClicarNaTask,
-    TaskDialogFragment.AoAdicionarTask {
+    TaskDialogFragment.AoAdicionarTask, SearchView.OnQueryTextListener, MenuItemCompat.OnActionExpandListener {
 
     private FragmentManager fragmentManager;
     private TaskListFragment taskListFragment;
@@ -45,6 +47,12 @@ public class TaskActivity extends AppCompatActivity implements TaskListFragment.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.acao_pesquisar);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("Procurar...");
+        MenuItemCompat.setOnActionExpandListener(searchItem,this);
         return true;
     }
 
@@ -66,5 +74,27 @@ public class TaskActivity extends AppCompatActivity implements TaskListFragment.
     @Override
     public void adicionouTask(Task task) {
         taskListFragment.addTask(task);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        taskListFragment.buscar(newText);
+        return false;
+    }
+
+    @Override
+    public boolean onMenuItemActionExpand(MenuItem item) {
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemActionCollapse(MenuItem item) {
+        taskListFragment.limpaBusca();
+        return true;
     }
 }
