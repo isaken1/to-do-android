@@ -129,7 +129,6 @@ public class TaskListFragment extends Fragment implements SwipeControllerActions
         void clicouNaTask(Task task);
     }
 
-<<<<<<< HEAD
     public void search(String text) {
         if(text == null || text.trim().equals("")){
             clear();
@@ -153,7 +152,5 @@ public class TaskListFragment extends Fragment implements SwipeControllerActions
             //mAdapter = new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, mTasks);
             //setListAdapter(mAdapter);
     }
-=======
 
->>>>>>> master
 }
