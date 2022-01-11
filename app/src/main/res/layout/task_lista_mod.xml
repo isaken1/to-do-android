@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvTask"
-    android:layout_margin="4dp"
-    app:cardElevation="4dp"
+    android:layout_margin="6dp"
+    app:cardElevation="5dp"
     app:cardCornerRadius="4dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
