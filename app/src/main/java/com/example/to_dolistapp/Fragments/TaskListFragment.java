@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.to_dolistapp.Adapters.AdapterMod;
@@ -97,5 +98,29 @@ public class TaskListFragment extends Fragment {
 
     public interface AoClicarNaTask{
         void clicouNaTask(Task task);
+    }
+
+    public void search(String text) {
+        if(text == null || text.trim().equals("")){
+            clear();
+            return;
+        }
+
+        ArrayList<Task> tasksFound = new ArrayList<Task>();
+
+        for(int i=0; i<mTasks.size(); i++){
+            Task t = mTasks.get(i);
+            String taskTitle = t.getTitle().toUpperCase();
+            String textUpper = text.toUpperCase();
+            if(taskTitle.contains(textUpper)){
+                tasksFound.add(t);
+            }
+        }
+        //mAdapter = new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, tasksFound);
+        //setListAdapter(mAdapter);
+    }
+    public void clear(){
+            //mAdapter = new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, mTasks);
+            //setListAdapter(mAdapter);
     }
 }
