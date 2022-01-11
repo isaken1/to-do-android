@@ -1,5 +1,6 @@
 package com.example.to_dolistapp.Adapters;
 
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -38,6 +39,18 @@ public class AdapterMod extends RecyclerView.Adapter<AdapterMod.TaskViewHolder>{
         holder.tvTitulo.setText(task.getTitle());
         holder.tvDataInicial.setText(sdf.format(task.getInitialDate()));
         holder.tvDataFinal.setText(sdf.format(task.getFinishDate()));
+
+        if (task.isDone()) {
+            holder.tvDataFinal.setPaintFlags(holder.tvDataFinal.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.tvDataInicial.setPaintFlags(holder.tvDataInicial.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.tvTitulo.setPaintFlags(holder.tvTitulo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        } else {
+            if ((holder.tvTitulo.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) > 0) {
+                holder.tvDataFinal.setPaintFlags(holder.tvDataFinal.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                holder.tvDataInicial.setPaintFlags(holder.tvDataInicial.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                holder.tvTitulo.setPaintFlags(holder.tvTitulo.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+            }
+        }
     }
 
     @Override
