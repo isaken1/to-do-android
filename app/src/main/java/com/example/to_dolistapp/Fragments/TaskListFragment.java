@@ -1,12 +1,13 @@
 package com.example.to_dolistapp.Fragments;
 
 import android.app.Activity;
+import android.graphics.Canvas;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.ListFragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,14 +19,15 @@ import android.widget.ListView;
 
 import com.example.to_dolistapp.Adapters.AdapterMod;
 import com.example.to_dolistapp.R;
+import com.example.to_dolistapp.controllers.SwipeController;
+import com.example.to_dolistapp.controllers.SwipeControllerActions;
 import com.example.to_dolistapp.model.Task;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
-public class TaskListFragment extends Fragment {
+public class TaskListFragment extends Fragment implements SwipeControllerActions {
 
     List<Task> mTasks;
     AdapterMod mAdapter;
@@ -38,7 +40,6 @@ public class TaskListFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
     }
 
@@ -72,8 +73,19 @@ public class TaskListFragment extends Fragment {
             }
         });
 
+        SwipeController swipeController = new SwipeController(this);
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeController);
+        itemTouchHelper.attachToRecyclerView(rvTasks);
+
+        rvTasks.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                swipeController.onDraw(c);
+            }
+        });
+
         return layout;
- 
     }
 
     public void addTask(Task task){
@@ -95,11 +107,29 @@ public class TaskListFragment extends Fragment {
         return tasks;
     }
 
+    @Override
+    public void onLeftClicked(int position) {
+        changeTaskState(position);
+    }
+
+    @Override
+    public void onRightClicked(int position) {
+        changeTaskState(position);
+    }
+
+    public void changeTaskState(int position) {
+        Task t = mTasks.get(position);
+
+        t.setDone(!t.isDone());
+
+        mAdapter.notifyDataSetChanged();
+    }
 
     public interface AoClicarNaTask{
         void clicouNaTask(Task task);
     }
 
+<<<<<<< HEAD
     public void search(String text) {
         if(text == null || text.trim().equals("")){
             clear();
@@ -123,4 +153,7 @@ public class TaskListFragment extends Fragment {
             //mAdapter = new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, mTasks);
             //setListAdapter(mAdapter);
     }
+=======
+
+>>>>>>> master
 }

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import android.app.ActionBar;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.widget.SearchView;
 import com.example.to_dolistapp.Fragments.InfoDialogFragment;
 import com.example.to_dolistapp.Fragments.TaskDialogFragment;
 import com.example.to_dolistapp.Fragments.TaskListFragment;
+import com.example.to_dolistapp.controllers.SwipeController;
 import com.example.to_dolistapp.model.Task;
 
 public class TaskActivity extends AppCompatActivity implements TaskListFragment.AoClicarNaTask,
