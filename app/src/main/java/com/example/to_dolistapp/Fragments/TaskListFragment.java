@@ -94,22 +94,6 @@ public class TaskListFragment extends Fragment {
         return tasks;
     }
 
-    @Override
-    public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        Activity activity = getActivity();
-
-        if(activity instanceof AoClicarNaTask){
-
-            Task task = (Task) l.getItemAtPosition(position);
-
-            AoClicarNaTask listener = (AoClicarNaTask) activity;
-
-            listener.clicouNaTask(task);
-
-        }
-    }
 
     public interface AoClicarNaTask{
         void clicouNaTask(Task task);

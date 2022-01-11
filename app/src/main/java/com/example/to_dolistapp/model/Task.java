@@ -16,11 +16,11 @@ public class Task implements Serializable {
         this.initialDate = new Date();
     }
 
-    public Task (String titulo, String descricao, Date finishDate){
+    public Task (String titulo, String descricao){
         this.title = titulo;
         this.description = descricao;
         this.initialDate = new Date();
-        this.finishDate = finishDate;
+        this.finishDate = new Date();
         done = false;
     }
 
