@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.to_dolistapp.Adapters.AdapterMod;
@@ -137,12 +138,8 @@ public class TaskListFragment extends Fragment implements SwipeControllerActions
 
         List<Task> tasksEncontradas = new ArrayList<Task>(mTasks);
 
-        //2.1 percorrer a lista e retirar os filmes não relacionados ao parametro de busca (s)
-
         for(int i = tasksEncontradas.size()-1; i >= 0; i--){
             Task task = tasksEncontradas.get(i);
-            //verifica se o filme na posicao i contem em SEU nome o trecho buscado que é
-            //representado por s. Se não tiver, filme i sai da lista.
 
             if(!task.getTitle().toUpperCase().contains(s.toUpperCase())){
                 tasksEncontradas.remove(task);
@@ -151,7 +148,6 @@ public class TaskListFragment extends Fragment implements SwipeControllerActions
 
         mAdapter = new AdapterMod(tasksEncontradas);
         rvTasks.setAdapter(mAdapter);
-
 
     }
 

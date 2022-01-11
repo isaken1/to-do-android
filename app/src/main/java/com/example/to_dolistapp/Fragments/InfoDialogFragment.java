@@ -28,14 +28,7 @@ public class InfoDialogFragment extends DialogFragment implements DialogInterfac
 
         builder.setTitle("Alunos");
         builder.setMessage("Ian Barreto, Isaac Kennedy, Italo Lima e Victor Gabriel");
-        builder.setPositiveButton("Ver Site", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String link = "https://github.com/isaken1/to-do-android";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-                startActivity(intent);
-            }
-        });
+        builder.setPositiveButton("Ver Site", this);
         builder.setNegativeButton("Sair", this);
 
         return builder.create();
